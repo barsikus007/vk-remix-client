@@ -1,3 +1,6 @@
+# Shitcoded vk client based on remix and vk-io
+Still better than official web client
+
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)
