@@ -4,6 +4,7 @@ import { Link, useLoaderData } from "@remix-run/react";
 
 import type { MessagesGetHistoryExtendedResponse } from "vk-io/lib/api/schemas/responses";
 
+import ObjectExplorer from "~/components/ObjectExplorer";
 import { messagesHistory } from '~/utils/vk.server';
 
 
@@ -31,6 +32,7 @@ export default function ChatById() {
                 } alt="No" />
               </Link>
               {message.text ?? 'No text'}
+              <ObjectExplorer obj={message} />
             </li>
           )
         })}

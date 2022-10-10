@@ -5,6 +5,8 @@ import { Link, useLoaderData } from "@remix-run/react";
 import type { MessagesGetConversationsResponse } from "vk-io/lib/api/schemas/responses";
 
 import { messages } from '~/utils/vk.server';
+import { camera_50 } from "~/consts/assets";
+import ObjectExplorer from "~/components/ObjectExplorer";
 
 
 export const loader = async () => {
@@ -21,8 +23,7 @@ export default function Chats() {
         {items.map((message) => (
           <li key={message.conversation.peer.id}>
             <img src={
-              message.conversation.chat_settings?.photo?.photo_50 ||
-              'https://c5.rgstatic.net/m/4671872220764/images/template/default/profile/profile_default_m.jpg'
+              message.conversation.chat_settings?.photo?.photo_50 || camera_50
             } alt="No" />
             <Link
               to={''+message.conversation.peer.id}
@@ -30,6 +31,7 @@ export default function Chats() {
             >
               {message.conversation?.chat_settings?.title ?? 'No title'}
             </Link>
+            <ObjectExplorer obj={message} />
           </li>
         ))}
       </ul>
